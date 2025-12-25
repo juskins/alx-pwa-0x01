@@ -9,8 +9,14 @@ const withPWA = withPWAInit({
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['m.media-amazon.com'],
+    remotePatterns: [
+      {
+        protocol: 'https' as const,
+        hostname: 'm.media-amazon.com',
+      },
+    ],
   },
+  turbopack: {},
 };
 
 export default withPWA({
